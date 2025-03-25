@@ -1,5 +1,7 @@
-FROM icr.io/codeengine/node:12-alpine
-RUN npm install
+FROM node:18-alpine  # Use latest stable Node.js version
+
+WORKDIR /app
 COPY server.js .
-EXPOSE 8080
-CMD [ "node", "server.js" ]
+RUN npm install
+
+CMD ["node", "server.js"]
